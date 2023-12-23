@@ -17,6 +17,16 @@ title: Home
 <!-- Gallery -->
 <div id="gallery"></div>
 
+<!-- Modal for Upload -->
+<div id="uploadModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2>Upload Images</h2>
+    <input type="file" id="imageInput" accept="image/*" multiple>
+    <button type="button" onclick="uploadImages()">Upload</button>
+  </div>
+</div>
+
 <!-- Include LightGallery scripts -->
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
@@ -41,11 +51,29 @@ title: Home
   }
 
   function showUploadForm() {
-    // Modify the DOM to show the upload form or redirect to the upload page
-    // For simplicity, we'll just display an alert here
-    alert("Password correct! You can now access the upload functionality.");
+    // Display the upload modal
+    document.getElementById("uploadModal").style.display = "block";
 
     // Fetch and display images in the gallery
+    fetchImages();
+  }
+
+  function closeModal() {
+    // Close the upload modal
+    document.getElementById("uploadModal").style.display = "none";
+  }
+
+  function uploadImages() {
+    // Get the selected files
+    var files = document.getElementById("imageInput").files;
+
+    // Perform the upload logic (you can handle this based on your hosting solution)
+    // For client-side only, you can display a message or simulate the upload process
+
+    // Close the modal after uploading (you can customize this based on your needs)
+    closeModal();
+
+    // Fetch and display images in the gallery (including the newly uploaded ones)
     fetchImages();
   }
 
